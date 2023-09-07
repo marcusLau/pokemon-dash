@@ -1,2 +1,21 @@
-from airflow import dag
+from airflow import DAG
+from airflow.operators.python_operator import PythonOperator
+from scripts.trigger import hello_world
+from airflow.utils.dates import days_ago
 
+args = {
+    'owner': 'Marcus Lau',
+    'start_date': days_ago(1) # make start date in the past
+}
+
+dag = DAG(
+    dag_id = 'crm-elastic-dag',
+    default_args = args,
+    schedule_interval='@daily' # this workflow happens every day
+)
+
+with dag:
+    hello_world = PythonOperator(
+        task_id = 'hello_world',
+        python_callable=hello_world
+    )
