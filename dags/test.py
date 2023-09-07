@@ -1,7 +1,7 @@
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
-from scripts.trigger import hello_world
 from airflow.utils.dates import days_ago
+from scripts.trigger import hello_world
 
 args = {
     'owner': 'Marcus Lau',
