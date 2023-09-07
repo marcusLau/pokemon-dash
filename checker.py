@@ -19,12 +19,12 @@ def export(url):
     
     json_data = json.load(r)
     
-    
+    # TODO: figure out how to write downloaded data into a folder to then upload into MYSQL
     
     # with open('G:\Akhil\jsonoutput.json') as json_file:
     #     jsondata = json.load(json_file)
  
-    data_file = open('data\hashes.csv', 'w', newline='')
+    data_file = open('data/hashes.csv', 'w', newline='')
     csv_writer = csv.writer(data_file)
     
     count = 0
